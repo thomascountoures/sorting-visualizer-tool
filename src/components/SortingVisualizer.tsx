@@ -23,5 +23,9 @@ export const SortingVisualizer = (props: SortingVisualizerProps) => {
     generateArray();
   }, []);
 
+  const mapStateToProps = (state, actionCreators) => {
+    return state, actionCreators as any;
+  };
+
   return <div>Sorting Visualizer</div>;
 };
