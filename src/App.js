@@ -5,10 +5,7 @@ import { SortingVisualizer } from "./components/SortingVisualizer";
 function App() {
   return (
     <div className="App">
-      <SortingVisualizer
-        maxArraySize={100}
-        minArraySize={5}
-      ></SortingVisualizer>
+      <SortingVisualizer maxArraySize={10} minArraySize={5}></SortingVisualizer>
     </div>
   );
 }
