@@ -1,0 +1,3 @@
+export const ARRAY_ACTIONS = {
+  SET_RANDOM_ARRAY: 'SET_RANDOM_ARRAY',
+};

@@ -1,31 +1,46 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { AppState } from '../redux/initialStates/AppState';
+import { connect } from 'react-redux';
+import configureStore from '../configureStore';
+import { Provider } from 'react-redux';
+import { setRandomArray } from '../redux/actions/arrayActionHandlers';
+
+const store = configureStore();
 
 export interface SortingVisualizerProps {
+  setRandomArray: typeof setRandomArray;
   maxArraySize: number;
   minArraySize: number;
 }
 
 export const SortingVisualizer = (props: SortingVisualizerProps) => {
-  const [randomArray, setRandomArray] = useState([0]);
   const { maxArraySize, minArraySize } = props;
-  const generateArray = () => {
-    const result: number[] = [];
-    for (let i = 0, length = maxArraySize; i < length; i++) {
-      result.push(getRandomIntFromInterval());
-    }
-    setRandomArray(result);
+  const resetRandomArray = () => {
+    props.setRandomArray(maxArraySize, minArraySize);
   };
-
-  const getRandomIntFromInterval = () =>
-    Math.random() * (maxArraySize - minArraySize) + minArraySize;
 
   React.useEffect(() => {
-    generateArray();
+    props.setRandomArray(maxArraySize, minArraySize);
   }, []);
 
-  const mapStateToProps = (state, actionCreators) => {
-    return state, actionCreators as any;
-  };
-
-  return <div>Sorting Visualizer</div>;
+  return (
+    <Provider store={store}>
+      <div>hello world from provider!</div>
+    </Provider>
+  );
 };
+
+const mapStateToProps = (state: AppState) => {
+  return {
+    array: state.array,
+  };
+};
+
+const actionCreators = {
+  setRandomArray,
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators as any
+)(SortingVisualizer);
