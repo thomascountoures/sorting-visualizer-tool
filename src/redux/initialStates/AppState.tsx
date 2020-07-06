@@ -1,3 +1,5 @@
+import { ISortingVisualizerInitialState } from '../interfaces/ISortingVisualizerInitialState';
+
 export interface AppState {
-  array: number[];
+  sortingVisualizer: ISortingVisualizerInitialState;
 }

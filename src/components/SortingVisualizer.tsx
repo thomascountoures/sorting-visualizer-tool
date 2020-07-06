@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AppState } from '../redux/initialStates/AppState';
 import { connect } from 'react-redux';
 import configureStore from '../configureStore';
@@ -32,7 +32,7 @@ export const SortingVisualizer = (props: SortingVisualizerProps) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    array: state.array,
+    randomArray: state.sortingVisualizer.randomArray,
   };
 };
 
