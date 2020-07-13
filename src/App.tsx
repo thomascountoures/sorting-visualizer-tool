@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <Provider store={store}>
-        <SortingVisualizer maxArraySize={15} minArraySize={10} />
+        <SortingVisualizer maxArraySize={15} minArraySize={5} />
       </Provider>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setRandomArray } from '../redux/actions/sortingVisualizerActionHandlers';
 import { IAppState } from '../redux/initialStates/AppState';
+import { SortingVisualizerArrayBars } from './SortingVisualizerArrayBars';
 
 export interface SortingVisualizerProps {
   maxArraySize: number;
@@ -19,7 +20,11 @@ const SortingVisualizer = (props: SortingVisualizerProps) => {
     setRandomArray(maxArraySize, minArraySize);
   }, []);
 
-  return <div>hello world from provider!</div>;
+  return (
+    <div className="sorting-visualizer-wrapper">
+      <SortingVisualizerArrayBars barsArray={randomArray} />
+    </div>
+  );
 };
 
 const mapStateToProps = (state: IAppState) => ({
