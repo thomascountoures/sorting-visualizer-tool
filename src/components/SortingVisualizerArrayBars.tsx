@@ -13,7 +13,11 @@ export const SortingVisualizerArrayBars = (
     <>
       {barsArray &&
         barsArray.map((barVal, idx) => (
-          <div className="sorting-visualizer-bar" key={idx}>
+          <div
+            className="sorting-visualizer-bar"
+            key={idx}
+            style={{ height: `${barVal}px` }}
+          >
             {barVal}
           </div>
         ))}

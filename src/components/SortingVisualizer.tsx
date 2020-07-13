@@ -5,19 +5,26 @@ import { IAppState } from '../redux/initialStates/AppState';
 import { SortingVisualizerArrayBars } from './SortingVisualizerArrayBars';
 
 export interface SortingVisualizerProps {
-  maxArraySize: number;
-  minArraySize: number;
+  maxArrayBarHeight: number;
+  minArrayBarHeight: number;
   randomArray: number[];
-  setRandomArray: (max: number, min: number) => number[];
+  setRandomArray: (arrayLength: number, max: number, min: number) => number[];
+  arrayLength: number;
 }
 
 const SortingVisualizer = (props: SortingVisualizerProps) => {
   console.log('props', props);
 
-  const { maxArraySize, minArraySize, setRandomArray, randomArray } = props;
+  const {
+    maxArrayBarHeight,
+    minArrayBarHeight,
+    setRandomArray,
+    randomArray,
+    arrayLength,
+  } = props;
 
   React.useEffect(() => {
-    setRandomArray(maxArraySize, minArraySize);
+    setRandomArray(arrayLength, maxArrayBarHeight, minArrayBarHeight);
   }, []);
 
   return (

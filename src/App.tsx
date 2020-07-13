@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import SortingVisualizer from './components/SortingVisualizer';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
@@ -11,7 +11,11 @@ const App = () => {
   return (
     <div className="App">
       <Provider store={store}>
-        <SortingVisualizer maxArraySize={15} minArraySize={5} />
+        <SortingVisualizer
+          maxArrayBarHeight={315}
+          minArrayBarHeight={5}
+          arrayLength={50}
+        />
       </Provider>
     </div>
   );
