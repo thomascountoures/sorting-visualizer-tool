@@ -1,5 +1,5 @@
-import { ISortingVisualizerInitialState } from '../interfaces/ISortingVisualizerInitialState';
+import { ISortingVisualizerState } from './SortingVisualizerState';
 
-export interface AppState {
-  sortingVisualizer: ISortingVisualizerInitialState;
+export interface IAppState {
+  sortingVisualizer: ISortingVisualizerState;
 }

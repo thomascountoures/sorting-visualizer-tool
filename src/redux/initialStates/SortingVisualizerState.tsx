@@ -1,5 +1,7 @@
-import { ISortingVisualizerInitialState } from '../interfaces/ISortingVisualizerInitialState';
+export interface ISortingVisualizerState {
+  randomArray: number[];
+}
 
-export const sortingVisualizerInitialState: ISortingVisualizerInitialState = {
+export const sortingVisualizerInitialState = {
   randomArray: [],
 };

@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
-import { SortingVisualizer } from './components/SortingVisualizer';
-import reducers from './redux/reducers';
+import SortingVisualizer from './components/SortingVisualizer';
 import { Provider } from 'react-redux';
+import configureStore from './configureStore';
+import { sortingVisualizerInitialState } from './redux/initialStates/SortingVisualizerState';
 
-function App() {
+const store = configureStore(sortingVisualizerInitialState);
+
+const App = () => {
   return (
-    <div className='App'>
-      <SortingVisualizer maxArraySize={10} minArraySize={5}></SortingVisualizer>
+    <div className="App">
+      <Provider store={store}>
+        <SortingVisualizer maxArraySize={15} minArraySize={10} />
+      </Provider>
     </div>
   );
-}
+};
 
 export default App;
