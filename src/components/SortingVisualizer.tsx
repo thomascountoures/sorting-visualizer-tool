@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setRandomArray } from '../redux/actions/sortingVisualizerActionHandlers';
+import {
+  setRandomArray,
+  doMergeSort,
+} from '../redux/actions/sortingVisualizerActionHandlers';
 import { IAppState } from '../redux/initialStates/AppState';
 import { SortingVisualizerArrayBars } from './SortingVisualizerArrayBars';
 
@@ -38,6 +41,10 @@ const SortingVisualizer = (props: SortingVisualizerProps) => {
       >
         Generate New Array
       </button>
+
+      <button id="merge-sort-array" onClick={() => doMergeSort(randomArray)}>
+        Do Merge Sort
+      </button>
     </div>
   );
 };
@@ -48,6 +55,7 @@ const mapStateToProps = (state: IAppState) => ({
 
 const actionCreators = {
   setRandomArray,
+  doMergeSort,
 };
 
 // need to cast entire connect method as any here to

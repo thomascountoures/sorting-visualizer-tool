@@ -15,6 +15,10 @@ export const sortingVisualizerReducer = (
         draft.randomArray = action.payload;
         return draft;
 
+      case SORTING_VISUALIZER_ACTIONS.DO_MERGE_SORT_ARRAY:
+        draft.randomArray = action.payload;
+        return draft;
+
       default:
         return draft;
     }

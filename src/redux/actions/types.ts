@@ -1,3 +1,6 @@
 export const SORTING_VISUALIZER_ACTIONS = {
   SET_RANDOM_ARRAY: 'SET_RANDOM_ARRAY',
+
+  // Sorting algorithms
+  DO_MERGE_SORT_ARRAY: 'DO_MERGE_SORT_ARRAY',
 };
