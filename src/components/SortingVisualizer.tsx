@@ -8,7 +8,7 @@ export interface SortingVisualizerProps {
   maxArrayBarHeight: number;
   minArrayBarHeight: number;
   randomArray: number[];
-  setRandomArray: (arrayLength: number, max: number, min: number) => number[];
+  setRandomArray: (arrayLength: number, max: number, min: number) => void;
   arrayLength: number;
 }
 
@@ -30,6 +30,14 @@ const SortingVisualizer = (props: SortingVisualizerProps) => {
   return (
     <div className="sorting-visualizer-wrapper">
       <SortingVisualizerArrayBars barsArray={randomArray} />
+      <button
+        id="generate-new-array"
+        onClick={() =>
+          setRandomArray(arrayLength, maxArrayBarHeight, minArrayBarHeight)
+        }
+      >
+        Generate New Array
+      </button>
     </div>
   );
 };
