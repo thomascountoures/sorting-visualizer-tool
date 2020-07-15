@@ -7,6 +7,7 @@ export const setRandomArray = (
   maxSize: number,
   minSize: number
 ) => (dispatch: any) => {
+  console.log('setting random array');
   const result: number[] = [];
 
   for (let i = 0, length = arrayLength; i < length; i++) {

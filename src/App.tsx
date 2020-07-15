@@ -14,7 +14,7 @@ const App = () => {
         <SortingVisualizer
           maxArrayBarHeight={315}
           minArrayBarHeight={5}
-          arrayLength={50}
+          arrayLength={20}
         />
       </Provider>
     </div>

@@ -13,6 +13,7 @@ export interface SortingVisualizerProps {
   randomArray: number[];
   setRandomArray: (arrayLength: number, max: number, min: number) => void;
   arrayLength: number;
+  doMergeSort: (array: number[]) => void;
 }
 
 const SortingVisualizer = (props: SortingVisualizerProps) => {
@@ -24,6 +25,7 @@ const SortingVisualizer = (props: SortingVisualizerProps) => {
     setRandomArray,
     randomArray,
     arrayLength,
+    doMergeSort,
   } = props;
 
   React.useEffect(() => {
