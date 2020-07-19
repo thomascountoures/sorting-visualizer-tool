@@ -4,7 +4,6 @@ import reducers from './redux/reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const configureStore = (preloadedState: any) => {
-  debugger;
   return createStore(
     reducers,
     preloadedState as any,

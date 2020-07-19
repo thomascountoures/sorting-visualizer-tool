@@ -1,4 +1,5 @@
-import { mergeSort } from './../../algorithms/index';
+import { verifyArraysEqual } from './../../util/verifyArraysEqual';
+import { mergeSort, bubbleSort } from './../../algorithms/index';
 import { getRandomIntFromInterval } from '../../util/getRandomIntFromInterval';
 import { SORTING_VISUALIZER_ACTIONS } from './types';
 
@@ -22,9 +23,24 @@ export const setRandomArray = (
 
 export const doMergeSort = (array: number[]) => (dispatch: any) => {
   console.log('doing merge sort');
+  const nativeSortedArray = array.slice().sort((a, b) => a - b);
   const mergeSortedArray = mergeSort(array);
+
+  console.log(
+    'array check',
+    verifyArraysEqual(nativeSortedArray, mergeSortedArray)
+  );
   dispatch({
     type: SORTING_VISUALIZER_ACTIONS.DO_MERGE_SORT_ARRAY,
     payload: mergeSortedArray,
+  });
+};
+
+export const doBubbleSort = (array: number[]) => (dispatch: any) => {
+  console.log('doing merge sort');
+  const bubbleSortedArray = bubbleSort(array);
+  dispatch({
+    type: SORTING_VISUALIZER_ACTIONS.DO_BUBBLE_SORT_ARRAY,
+    payload: bubbleSortedArray,
   });
 };
