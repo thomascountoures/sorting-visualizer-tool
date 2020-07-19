@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   setRandomArray,
   doMergeSort,
+  doBubbleSort,
 } from '../redux/actions/sortingVisualizerActionHandlers';
 import { IAppState } from '../redux/initialStates/AppState';
 import { SortingVisualizerArrayBars } from './SortingVisualizerArrayBars';
@@ -14,6 +15,7 @@ export interface SortingVisualizerProps {
   setRandomArray: (arrayLength: number, max: number, min: number) => void;
   arrayLength: number;
   doMergeSort: (array: number[]) => void;
+  doBubbleSort: (array: number[]) => void;
 }
 
 const SortingVisualizer = (props: SortingVisualizerProps) => {
@@ -26,27 +28,42 @@ const SortingVisualizer = (props: SortingVisualizerProps) => {
     randomArray,
     arrayLength,
     doMergeSort,
+    doBubbleSort,
   } = props;
 
   React.useEffect(() => {
     setRandomArray(arrayLength, maxArrayBarHeight, minArrayBarHeight);
   }, []);
 
+  const verifyArraysEqual = (a1: number[], a2: number[]) => {
+    if (a1.length !== a2.length) return false;
+  };
+
   return (
     <div className="sorting-visualizer-wrapper">
       <SortingVisualizerArrayBars barsArray={randomArray} />
-      <button
-        id="generate-new-array"
-        onClick={() =>
-          setRandomArray(arrayLength, maxArrayBarHeight, minArrayBarHeight)
-        }
-      >
-        Generate New Array
-      </button>
 
-      <button id="merge-sort-array" onClick={() => doMergeSort(randomArray)}>
-        Do Merge Sort
-      </button>
+      <div className="buttons">
+        <button
+          id="generate-new-array"
+          onClick={() =>
+            setRandomArray(arrayLength, maxArrayBarHeight, minArrayBarHeight)
+          }
+        >
+          Generate New Array
+        </button>
+
+        <button id="merge-sort-array" onClick={() => doMergeSort(randomArray)}>
+          Do Merge Sort
+        </button>
+
+        <button
+          id="bubble-sort-array"
+          onClick={() => doBubbleSort(randomArray)}
+        >
+          Do Bubble Sort
+        </button>
+      </div>
     </div>
   );
 };
@@ -58,6 +75,7 @@ const mapStateToProps = (state: IAppState) => ({
 const actionCreators = {
   setRandomArray,
   doMergeSort,
+  doBubbleSort,
 };
 
 // need to cast entire connect method as any here to
